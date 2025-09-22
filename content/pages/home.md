@@ -1,5 +1,5 @@
 ---
-header: du du du max verstappen
+header: du du du max verstapp
 logo:
   url: /vercel.svg
   alt: NextJS
