@@ -14,8 +14,14 @@ const branch = (process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF |
 
 if (!branch) throw new Error("Branch not found. Set GITHUB_BRANCH or VERCEL_GIT_COMMIT_REF.");
 
-async function getCommitMessage(params, req) {
-          let userName = "Unknown editor";
+async function getCommitMessage (params, req) {
+  // Only run if Tina is actually committing a file
+  if (!params || !params.message) {
+    // For non-commit requests, return undefined to skip
+    return undefined;
+  }
+
+  let userName = "Unknown editor";
 
   try {
     const session = await getServerSession(req, {} as any, authOptions);
@@ -24,8 +30,17 @@ async function getCommitMessage(params, req) {
     console.warn("Could not get session for commit message:", err);
   }
 
-  return `${params?.message || "Update"} (edited by ${userName})`;
+
+  try {
+    const session = await getServerSession(req, {} as any, authOptions);
+    userName = session?.user?.name || userName;
+  } catch (err) {
+    console.warn("Could not get session for commit message:", err);
+  }
+
+  return `${params.message} (edited by ${userName})`;
 }
+
 
 export default isLocal
   ? createLocalDatabase()
