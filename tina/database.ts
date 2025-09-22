@@ -1,23 +1,30 @@
+// /tina/database.ts
 import { createDatabase, createLocalDatabase } from "@tinacms/datalayer";
 import { RedisLevel } from "upstash-redis-level";
 import { GitHubProvider } from "tinacms-gitprovider-github";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../pages/api/auth/[...nextauth]";
 
-// Manage this flag in your CI/CD pipeline and make sure it is set to false in production
 const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === "true";
 
 const token = process.env.GITHUB_PERSONAL_ACCESS_TOKEN as string;
-const owner = (process.env.GITHUB_OWNER ||
-  process.env.VERCEL_GIT_REPO_OWNER) as string;
-const repo = (process.env.GITHUB_REPO ||
-  process.env.VERCEL_GIT_REPO_SLUG) as string;
-const branch = (process.env.GITHUB_BRANCH ||
-  process.env.VERCEL_GIT_COMMIT_REF ||
-  "main") as string;
+const owner = (process.env.GITHUB_OWNER || process.env.VERCEL_GIT_REPO_OWNER) as string;
+const repo = (process.env.GITHUB_REPO || process.env.VERCEL_GIT_REPO_SLUG) as string;
+const branch = (process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || "main") as string;
 
-if (!branch) {
-  throw new Error(
-    "No branch found. Make sure that you have set the GITHUB_BRANCH or process.env.VERCEL_GIT_COMMIT_REF environment variable."
-  );
+if (!branch) throw new Error("Branch not found. Set GITHUB_BRANCH or VERCEL_GIT_COMMIT_REF.");
+
+async function getCommitMessage(params, req) {
+          let userName = "Unknown editor";
+
+  try {
+    const session = await getServerSession(req, {} as any, authOptions);
+    userName = session?.user?.name || userName;
+  } catch (err) {
+    console.warn("Could not get session for commit message:", err);
+  }
+
+  return `${params?.message || "Update"} (edited by ${userName})`;
 }
 
 export default isLocal
@@ -28,12 +35,12 @@ export default isLocal
         owner,
         repo,
         token,
+        commitMessage: getCommitMessage as unknown as string,
       }),
       databaseAdapter: new RedisLevel<string, Record<string, any>>({
         redis: {
-          url:
-            (process.env.KV_REST_API_URL as string) || "http://localhost:8079",
-          token: (process.env.KV_REST_API_TOKEN as string) || "example_token",
+          url: process.env.KV_REST_API_URL || "http://localhost:8079",
+          token: process.env.KV_REST_API_TOKEN || "example_token",
         },
         debug: process.env.DEBUG === "true" || false,
       }),
