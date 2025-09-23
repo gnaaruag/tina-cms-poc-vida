@@ -1,0 +1,25 @@
+{
+  "name": "tina-cms-tests",
+  "version": "1.0.0",
+  "description": "Test suite for TinaCMS cache bypass and Git operations",
+  "main": "comprehensive-tina-test.js",
+  "scripts": {
+    "test": "node comprehensive-tina-test.js",
+    "test:git-ops": "node git-operations-test.js",
+    "test:branches": "node branch-operations-test.js",
+    "test:branch-switching": "node branch-switching-test.js",
+    "test:workflow": "node workflow-test.js",
+    "test:cache": "node -e \"const Test = require('./comprehensive-tina-test.js'); const t = new Test(); t.testCacheBypass().catch(console.error);\"",
+    "test:git": "node -e \"const Test = require('./comprehensive-tina-test.js'); const t = new Test(); t.testGitOperations().catch(console.error);\"",
+    "test:performance": "node -e \"const Test = require('./comprehensive-tina-test.js'); const t = new Test(); t.testPerformanceComparison().catch(console.error);\"",
+    "test:limitations": "node -e \"const Test = require('./comprehensive-tina-test.js'); const t = new Test(); t.testLimitations().catch(console.error);\""
+  },
+  "dependencies": {
+    "@octokit/rest": "^20.0.2",
+    "node-fetch": "^2.7.0",
+    "dotenv": "^16.0.3"
+  },
+  "keywords": ["tinacms", "testing", "cache", "git", "github"],
+  "author": "TinaCMS POC Team",
+  "license": "MIT"
+}

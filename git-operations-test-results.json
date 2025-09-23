@@ -1,0 +1,98 @@
+{
+  "timestamp": "2025-09-23T09:21:28.670Z",
+  "tests": [
+    {
+      "test": "commit_cache_bypass",
+      "success": true,
+      "averageFetchTime": 498,
+      "results": [
+        {
+          "delay": 100,
+          "fetchTime": 528,
+          "found": true,
+          "commitMessage": "Test commit: Cache bypass validation 1758619288673"
+        },
+        {
+          "delay": 500,
+          "fetchTime": 539,
+          "found": true,
+          "commitMessage": "Test commit: Cache bypass validation 1758619288673"
+        },
+        {
+          "delay": 1000,
+          "fetchTime": 490,
+          "found": true,
+          "commitMessage": "Test commit: Cache bypass validation 1758619288673"
+        },
+        {
+          "delay": 2000,
+          "fetchTime": 433,
+          "found": true,
+          "commitMessage": "Test commit: Cache bypass validation 1758619288673"
+        }
+      ],
+      "commitInfo": {
+        "success": true,
+        "commitTime": 955,
+        "commitSha": "5c7e7cc7c9d444e5e647b00815fcf27404f65021",
+        "fileName": "test-cache-1758619288673.md",
+        "filePath": "content/pages/test-cache-1758619288673.md",
+        "message": "Test commit: Cache bypass validation 1758619288673"
+      }
+    },
+    {
+      "test": "branch_cache_bypass",
+      "success": true,
+      "averageFetchTime": 464,
+      "results": [
+        {
+          "delay": 100,
+          "fetchTime": 497,
+          "found": true,
+          "totalBranches": 2
+        },
+        {
+          "delay": 500,
+          "fetchTime": 446,
+          "found": true,
+          "totalBranches": 2
+        },
+        {
+          "delay": 1000,
+          "fetchTime": 462,
+          "found": true,
+          "totalBranches": 2
+        },
+        {
+          "delay": 2000,
+          "fetchTime": 451,
+          "found": true,
+          "totalBranches": 2
+        }
+      ],
+      "branchInfo": {
+        "success": true,
+        "branchTime": 1005,
+        "branchName": "test-cache-1758619295226",
+        "baseSha": "5c7e7cc7c9d444e5e647b00815fcf27404f65021",
+        "ref": "refs/heads/test-cache-1758619295226"
+      }
+    },
+    {
+      "test": "tinacms_content_consistency",
+      "success": false,
+      "updateTime": 51,
+      "readTime": 444,
+      "totalTime": 495,
+      "immediateConsistency": false,
+      "testContent": "Cache Test 1758619301692"
+    }
+  ],
+  "summary": {
+    "overallSuccess": false,
+    "commitConsistency": true,
+    "branchConsistency": true,
+    "tinaContentConsistency": false,
+    "recommendation": "Some cache delays detected - investigate configuration"
+  }
+}

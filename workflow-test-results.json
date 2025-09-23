@@ -1,0 +1,146 @@
+{
+  "timestamp": "2025-09-23T10:15:48.246Z",
+  "repository": "gnaaruag/tina-cms-poc-vida",
+  "workflow": "Complete TinaCMS Workflow Test",
+  "steps": [
+    {
+      "step": 1,
+      "name": "Create Test Branches",
+      "duration": 2310,
+      "success": true,
+      "details": [
+        {
+          "branch": "workflow-branch-1",
+          "sha": "7d745e694e07f884fdc804d3292236b2561bc6e2",
+          "createTime": 1190,
+          "success": true
+        },
+        {
+          "branch": "workflow-branch-2",
+          "sha": "7d745e694e07f884fdc804d3292236b2561bc6e2",
+          "createTime": 1119,
+          "success": true
+        }
+      ],
+      "summary": "2/2 branches created successfully"
+    },
+    {
+      "step": 2,
+      "name": "Verify Branch Immediate Availability",
+      "duration": 510,
+      "success": true,
+      "details": [
+        {
+          "branch": "workflow-branch-1",
+          "found": true,
+          "verificationTime": 510,
+          "success": true
+        },
+        {
+          "branch": "workflow-branch-2",
+          "found": true,
+          "verificationTime": 510,
+          "success": true
+        }
+      ],
+      "summary": "2/2 branches verified immediately"
+    },
+    {
+      "step": 3,
+      "name": "Create Commits in Branches",
+      "duration": 1713,
+      "success": true,
+      "details": [
+        {
+          "branch": "workflow-branch-1",
+          "fileName": "workflow-test-1.md",
+          "commitSha": "29609c1e8c89e37123b17849375159fc77e496a8",
+          "commitTime": 800,
+          "success": true
+        },
+        {
+          "branch": "workflow-branch-2",
+          "fileName": "workflow-test-2.md",
+          "commitSha": "6641ae384176f9a10d410e0df3e77eb355f2c2e5",
+          "commitTime": 912,
+          "success": true
+        }
+      ],
+      "summary": "2/2 commits created successfully"
+    },
+    {
+      "step": 4,
+      "name": "Verify Commit Immediate Visibility",
+      "duration": 793,
+      "success": true,
+      "details": [
+        {
+          "branch": "workflow-branch-1",
+          "fileName": "workflow-test-1.md",
+          "verifyTime": 395,
+          "workflowMarker": true,
+          "branchMarker": true,
+          "contentFound": true,
+          "success": true
+        },
+        {
+          "branch": "workflow-branch-2",
+          "fileName": "workflow-test-2.md",
+          "verifyTime": 398,
+          "workflowMarker": true,
+          "branchMarker": true,
+          "contentFound": true,
+          "success": true
+        }
+      ],
+      "summary": "2/2 commits verified immediately"
+    },
+    {
+      "step": 5,
+      "name": "Test Branch Switching",
+      "duration": 965,
+      "success": true,
+      "details": [
+        {
+          "branch": "workflow-branch-1",
+          "switchTime": 522,
+          "latestCommitSha": "29609c1e8c89e37123b17849375159fc77e496a8",
+          "commitMessage": "Workflow test: Add workflow-test-1.md to workflow-branch-1",
+          "success": true
+        },
+        {
+          "branch": "workflow-branch-2",
+          "switchTime": 441,
+          "latestCommitSha": "6641ae384176f9a10d410e0df3e77eb355f2c2e5",
+          "commitMessage": "Workflow test: Add workflow-test-2.md to workflow-branch-2",
+          "success": true
+        }
+      ],
+      "summary": "2/2 branch switches successful"
+    },
+    {
+      "step": 6,
+      "name": "Cleanup Test Resources",
+      "duration": 1077,
+      "success": true,
+      "details": [
+        {
+          "resource": "branch:workflow-branch-1",
+          "success": true
+        },
+        {
+          "resource": "branch:workflow-branch-2",
+          "success": true
+        }
+      ],
+      "summary": "2/2 resources cleaned up"
+    }
+  ],
+  "summary": {
+    "totalSteps": 6,
+    "successfulSteps": 6,
+    "failedSteps": 0,
+    "totalTime": 7368,
+    "averageStepTime": 1228
+  }
+}
