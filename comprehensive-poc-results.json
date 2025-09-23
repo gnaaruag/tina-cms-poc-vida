@@ -1,0 +1,131 @@
+{
+  "environment": {
+    "nodeVersion": "v22.14.0",
+    "platform": "darwin",
+    "tinaMode": "production",
+    "timestamp": "2025-09-23T09:17:40.876Z"
+  },
+  "prerequisites": {
+    "envVars": {
+      "GITHUB_OWNER": true,
+      "GITHUB_REPO": true,
+      "GITHUB_PERSONAL_ACCESS_TOKEN": true,
+      "NEXTAUTH_SECRET": true
+    },
+    "services": {
+      "tinaCMS": true,
+      "graphqlAPI": true
+    }
+  },
+  "tests": {
+    "cacheBypass": [
+      {
+        "test": "cache_bypass_performance",
+        "success": true,
+        "tinaAverage": 142,
+        "githubAverage": 463,
+        "githubWorking": true,
+        "githubCacheDelay": 300000,
+        "improvementVsCache": 100,
+        "improvementVsAPI": 69,
+        "timestamp": "2025-09-23T09:17:43.857Z"
+      }
+    ],
+    "gitOperations": [
+      {
+        "test": "git_operations",
+        "success": true,
+        "recentCommits": 5,
+        "latestCommit": {
+          "message": "db error 😩",
+          "author": "Admin",
+          "date": "2025-09-22T12:36:37Z"
+        },
+        "availableBranches": 1,
+        "currentBranch": "main",
+        "limitations": {
+          "runtimeBranchSwitching": false,
+          "reason": "Self-hosted mode restricts branch switching to build phase only"
+        },
+        "timestamp": "2025-09-23T09:17:44.831Z"
+      }
+    ],
+    "performance": [
+      {
+        "test": "performance_comparison",
+        "success": true,
+        "iterations": 5,
+        "measurements": [
+          176,
+          150,
+          159,
+          149,
+          141
+        ],
+        "averageResponseTime": 155,
+        "githubCacheDelay": 300000,
+        "performanceImprovement": 100,
+        "realTimeCapable": true,
+        "timestamp": "2025-09-23T09:17:46.613Z"
+      }
+    ],
+    "limitations": [
+      {
+        "feature": "Runtime Branch Switching",
+        "available": false,
+        "impact": "HIGH",
+        "reason": "Self-hosted mode restricts branch switching to build phase only",
+        "workaround": "Use environment variables and rebuild for branch changes",
+        "tinaCloudAlternative": true
+      },
+      {
+        "feature": "Git Backed Media",
+        "available": false,
+        "impact": "MEDIUM",
+        "reason": "Media uploads handled differently in self-hosted mode",
+        "workaround": "Use external media providers or repo-based media",
+        "tinaCloudAlternative": true
+      },
+      {
+        "feature": "Search Functionality",
+        "available": false,
+        "impact": "MEDIUM",
+        "reason": "Self-hosted backend lacks search endpoints",
+        "workaround": "Implement custom search or upgrade to TinaCloud",
+        "tinaCloudAlternative": true
+      },
+      {
+        "feature": "Database Caching (Primary Requirement)",
+        "available": true,
+        "impact": "CRITICAL",
+        "reason": "Redis/KV caching bypasses GitHub API cache",
+        "benefit": "Eliminates 5-minute cache delay - SOLVES YOUR MAIN PROBLEM",
+        "tinaCloudAlternative": false
+      },
+      {
+        "feature": "Content Committing",
+        "available": true,
+        "impact": "HIGH",
+        "reason": "Git provider handles commits to GitHub",
+        "benefit": "Automated commits with user attribution",
+        "tinaCloudAlternative": false
+      }
+    ]
+  },
+  "summary": {
+    "testDuration": 5739,
+    "overallSuccess": true,
+    "cacheBypassWorking": true,
+    "gitOperationsWorking": true,
+    "performanceGood": true,
+    "primaryRequirementMet": true,
+    "performanceImprovement": 100,
+    "averageResponseTime": 155,
+    "recommendations": [
+      "🎉 PRIMARY SUCCESS: TinaCMS eliminates GitHub API cache delays",
+      "✅ Use TinaCMS for your project - it solves your main problem",
+      "⚠️ Runtime branch switching not available - plan workflows accordingly",
+      "🚀 Ready for production implementation"
+    ]
+  }
+}

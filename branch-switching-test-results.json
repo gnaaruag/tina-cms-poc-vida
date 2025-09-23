@@ -1,0 +1,70 @@
+{
+  "timestamp": "2025-09-23T10:10:51.118Z",
+  "repository": "gnaaruag/tina-cms-poc-vida",
+  "tests": [
+    {
+      "test": "tinacms_graphql_branch_param",
+      "results": [
+        {
+          "branch": "test-switch-1",
+          "success": false,
+          "queryTime": 41,
+          "found": false
+        },
+        {
+          "branch": "test-switch-2",
+          "success": false,
+          "queryTime": 5,
+          "found": false
+        }
+      ],
+      "success": false
+    },
+    {
+      "test": "github_api_branch_switching",
+      "results": [
+        {
+          "branch": "test-switch-1",
+          "success": true,
+          "switchTime": 428,
+          "contentFound": true,
+          "contentPreview": "title: Branch 1 Content"
+        },
+        {
+          "branch": "test-switch-2",
+          "success": true,
+          "switchTime": 470,
+          "contentFound": true,
+          "contentPreview": "title: Branch 2 Content"
+        }
+      ],
+      "success": true
+    },
+    {
+      "test": "sha_based_retrieval",
+      "results": [
+        {
+          "branch": "test-switch-1",
+          "sha": "7d745e694e07f884fdc804d3292236b2561bc6e2",
+          "success": false,
+          "error": "Not Found - https://docs.github.com/rest/repos/contents#get-repository-content",
+          "method": "sha_based"
+        },
+        {
+          "branch": "test-switch-2",
+          "sha": "7d745e694e07f884fdc804d3292236b2561bc6e2",
+          "success": false,
+          "error": "Not Found - https://docs.github.com/rest/repos/contents#get-repository-content",
+          "method": "sha_based"
+        }
+      ],
+      "success": false
+    }
+  ],
+  "summary": {
+    "tinacmsBranchParam": false,
+    "githubApiSwitching": true,
+    "shaBasedRetrieval": false,
+    "recommendation": "Branch switching limitations confirmed - consider alternative approaches."
+  }
+}

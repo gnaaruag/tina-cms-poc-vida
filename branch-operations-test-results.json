@@ -1,0 +1,194 @@
+{
+  "timestamp": "2025-09-23T10:04:58.388Z",
+  "repository": "gnaaruag/tina-cms-poc-vida",
+  "baseBranch": "main",
+  "tests": [
+    {
+      "test": "sequential_branch_creation",
+      "branches": [
+        {
+          "success": true,
+          "branchName": "test-branch-seq-1-1758621899027",
+          "createTime": 981,
+          "baseSha": "7d745e694e07f884fdc804d3292236b2561bc6e2"
+        },
+        {
+          "success": true,
+          "branchName": "test-branch-seq-2-1758621900210",
+          "createTime": 1152,
+          "baseSha": "7d745e694e07f884fdc804d3292236b2561bc6e2"
+        },
+        {
+          "success": true,
+          "branchName": "test-branch-seq-3-1758621901564",
+          "createTime": 1079,
+          "baseSha": "7d745e694e07f884fdc804d3292236b2561bc6e2"
+        }
+      ],
+      "listingResults": [
+        {
+          "delay": 50,
+          "listTime": 537,
+          "totalBranches": 8,
+          "expectedBranches": 3,
+          "foundBranches": 3,
+          "allFound": true,
+          "foundBranchNames": [
+            "test-branch-seq-1-1758621899027",
+            "test-branch-seq-2-1758621900210",
+            "test-branch-seq-3-1758621901564"
+          ]
+        },
+        {
+          "delay": 100,
+          "listTime": 562,
+          "totalBranches": 8,
+          "expectedBranches": 3,
+          "foundBranches": 3,
+          "allFound": true,
+          "foundBranchNames": [
+            "test-branch-seq-1-1758621899027",
+            "test-branch-seq-2-1758621900210",
+            "test-branch-seq-3-1758621901564"
+          ]
+        },
+        {
+          "delay": 500,
+          "listTime": 530,
+          "totalBranches": 8,
+          "expectedBranches": 3,
+          "foundBranches": 3,
+          "allFound": true,
+          "foundBranchNames": [
+            "test-branch-seq-1-1758621899027",
+            "test-branch-seq-2-1758621900210",
+            "test-branch-seq-3-1758621901564"
+          ]
+        },
+        {
+          "delay": 1000,
+          "listTime": 489,
+          "totalBranches": 8,
+          "expectedBranches": 3,
+          "foundBranches": 3,
+          "allFound": true,
+          "foundBranchNames": [
+            "test-branch-seq-1-1758621899027",
+            "test-branch-seq-2-1758621900210",
+            "test-branch-seq-3-1758621901564"
+          ]
+        },
+        {
+          "delay": 2000,
+          "listTime": 467,
+          "totalBranches": 8,
+          "expectedBranches": 3,
+          "foundBranches": 3,
+          "allFound": true,
+          "foundBranchNames": [
+            "test-branch-seq-1-1758621899027",
+            "test-branch-seq-2-1758621900210",
+            "test-branch-seq-3-1758621901564"
+          ]
+        }
+      ],
+      "success": true
+    },
+    {
+      "test": "batch_branch_creation",
+      "branches": [
+        {
+          "success": true,
+          "branchName": "test-branch-batch-1-1758621909088",
+          "createTime": 1603,
+          "baseSha": "7d745e694e07f884fdc804d3292236b2561bc6e2"
+        },
+        {
+          "success": true,
+          "branchName": "test-branch-batch-2-1758621909088",
+          "createTime": 1577,
+          "baseSha": "7d745e694e07f884fdc804d3292236b2561bc6e2"
+        }
+      ],
+      "listingResults": [
+        {
+          "delay": 50,
+          "listTime": 521,
+          "totalBranches": 10,
+          "expectedBranches": 2,
+          "foundBranches": 2,
+          "allFound": true,
+          "foundBranchNames": [
+            "test-branch-batch-1-1758621909088",
+            "test-branch-batch-2-1758621909088"
+          ]
+        },
+        {
+          "delay": 100,
+          "listTime": 454,
+          "totalBranches": 10,
+          "expectedBranches": 2,
+          "foundBranches": 2,
+          "allFound": true,
+          "foundBranchNames": [
+            "test-branch-batch-1-1758621909088",
+            "test-branch-batch-2-1758621909088"
+          ]
+        },
+        {
+          "delay": 500,
+          "listTime": 532,
+          "totalBranches": 10,
+          "expectedBranches": 2,
+          "foundBranches": 2,
+          "allFound": true,
+          "foundBranchNames": [
+            "test-branch-batch-1-1758621909088",
+            "test-branch-batch-2-1758621909088"
+          ]
+        },
+        {
+          "delay": 1000,
+          "listTime": 548,
+          "totalBranches": 10,
+          "expectedBranches": 2,
+          "foundBranches": 2,
+          "allFound": true,
+          "foundBranchNames": [
+            "test-branch-batch-1-1758621909088",
+            "test-branch-batch-2-1758621909088"
+          ]
+        },
+        {
+          "delay": 2000,
+          "listTime": 457,
+          "totalBranches": 10,
+          "expectedBranches": 2,
+          "foundBranches": 2,
+          "allFound": true,
+          "foundBranchNames": [
+            "test-branch-batch-1-1758621909088",
+            "test-branch-batch-2-1758621909088"
+          ]
+        }
+      ],
+      "success": true
+    }
+  ],
+  "summary": {
+    "overallSuccess": true,
+    "branchCreationSuccess": true,
+    "immediateListingConsistency": true,
+    "performanceImprovement": 100,
+    "avgCreationTime": 1278,
+    "avgListingTime": 510,
+    "recommendation": "Branch operations work without cache delays - GitHub API is real-time for branches"
+  },
+  "performance": {
+    "avgCreationTime": 1278,
+    "avgListingTime": 510,
+    "creationToListingRatio": 2.5058823529411764,
+    "totalBranchesCreated": 5,
+    "totalListingTests": 10
+  }
+}
